@@ -1,0 +1,232 @@
+<!-- views/dashboard.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dog Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/css/style.css"/>
+  <style>
+    body {
+      background: linear-gradient(135deg, #fbeec1, #cde7f0);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .navbar {
+      background: linear-gradient(90deg, #3b3b98, #6a89cc);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .navbar-brand img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    .nav-link {
+      color: #f6e58d !important;
+      margin-right: 1rem;
+      transition: color 0.3s ease-in-out;
+    }
+    .nav-link:hover {
+      color: #ffc107 !important;
+    }
+    section#contact i {
+      transition: transform 0.3s ease;
+    }
+    section#contact i:hover {
+      transform: scale(1.2);
+      color: #ffc107 !important;
+    }
+    .carousel,
+    .carousel-inner,
+    .carousel-item,
+    .carousel-item img {
+      height: 65vh;
+      object-fit: cover;
+    }
+    .carousel-caption {
+      background: rgba(0,0,0,0.4);
+      padding: 1rem;
+      border-radius: 10px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card-img-top {
+      height: 400px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .card:hover .card-img-top {
+      transform: scale(1.05);
+    }
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    footer {
+      background-color: #343a40;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="/images/logo.png" alt="Logo">
+        Dog Breeds
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#data-cards">Breeds</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="btn btn-outline-light" href="/logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Carousel Only -->
+<section class="container my-5">
+  <div class="row">
+    <div class="col">
+      <div id="dogCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner rounded shadow">
+          <div class="carousel-item active">
+            <img src="/images/lover1.jpeg" class="d-block w-100" alt="Dog Lover 1">
+            <div class="carousel-caption">
+              <h5>"Happiness is a warm puppy."</h5>
+              <p>Free-spirited, energetic, and born to run in the snow.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/images/lover2.jpeg" class="d-block w-100" alt="Dog Lover 2">
+            <div class="carousel-caption">
+              <h5>"Dogs are not our whole life, but they make our lives whole."</h5>
+              <p>Loyal, loving, and one of the best family companions.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/images/lover3.jpeg" class="d-block w-100" alt="Dog Lover 3">
+            <div class="carousel-caption">
+              <h5>"The more people I meet, the more I love my dog."</h5>
+              <p>America’s favorite: playful, intelligent, and kind-hearted.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#dogCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#dogCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section Separately -->
+<section id="about" class="bg-light py-4">
+  <div class="container">
+    <h3 class="mb-3">About This Dashboard</h3>
+    <p style="text-align: justify;">
+        Dogs have long held the title of “man’s best friend,” and for good reason. With their loyal hearts, intuitive souls, and unwavering companionship, dogs enrich human lives in countless ways. Whether it’s a playful Golden Retriever bounding through a park or a wise old Beagle resting at your feet, every dog brings a unique charm and sense of joy. This dashboard celebrates that bond by showcasing a diverse selection of popular breeds, each with their own traits, personalities, and history.
+
+        For dog lovers, this goes beyond just admiration—it's a way of life. Dog lovers tend to form a strong emotional connection with their pets, often treating them as family members. They don’t just care for their dogs; they speak to them, celebrate their birthdays, and understand their moods. Studies have shown that having a dog can reduce stress, combat loneliness, and even improve heart health. For many, the simple act of coming home to a wagging tail is the highlight of their day.
+
+        From loyal working breeds like German Shepherds to cuddly lap dogs like Chihuahuas, the diversity among dog breeds means there is a perfect canine companion for every type of person. This dashboard helps visitors learn about these breeds, offering a quick glimpse into their personality, temperament, and lifestyle needs.
+
+        Whether you’re a seasoned dog parent or someone simply considering getting a pet, this space is crafted to inform and inspire. Behind every breed photo and description lies a deeper story of heritage, evolution, and a connection to human culture. You’ll find fun facts, essential characteristics, and beautiful visuals to engage with.
+
+        Ultimately, this dashboard is a tribute to the love shared between dogs and the people who cherish them. It’s for the ones who carry dog treats in their pockets, who light up at the sight of a fluffy tail, and who believe a dog's love is the purest thing in the world. So go ahead, browse through the breeds, discover your favorite, and celebrate the incredible bond we share with our four-legged friends.
+      </p>
+  </div>
+</section>
+
+  <!-- Dog Cards Section -->
+  <section class="content-section">
+    <div class="container">
+      <div class="row" id="data-cards">
+        <!-- Injected with JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+<section id="contact" class="py-5 bg-dark text-white">
+  <div class="container">
+    <h3 class="text-center mb-4">Get in Touch</h3>
+    <div class="row text-center">
+      <div class="col-md-4 mb-3">
+        <i class="bi bi-envelope-fill display-5 text-warning"></i>
+        <h5 class="mt-2">Email</h5>
+        <p><a href="mailto:contact@dogdashboard.com" class="text-white text-decoration-none">contact@dogdashboard.com</a></p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <i class="bi bi-telephone-fill display-5 text-warning"></i>
+        <h5 class="mt-2">Phone</h5>
+        <p>+1 800 123 4567</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <i class="bi bi-geo-alt-fill display-5 text-warning"></i>
+        <h5 class="mt-2">Location</h5>
+        <p>123 Bark Street, Dogtown, USA</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Dog Dashboard. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const jsonData = [
+      { title: "Golden Retriever", content: "Friendly, intelligent, and devoted family dog.", image: "/images/golden.jpg" },
+      { title: "German Shepherd", content: "Courageous, confident, and smart working dog.", image: "/images/german.jpg" },
+      { title: "Siberian Husky", content: "Energetic, friendly, and good with kids.", image: "/images/husky.jpg" },
+      { title: "Labrador Retriever", content: "Gentle, outgoing, and eager to please.", image: "/images/labrador.jpg" },
+      { title: "Poodle", content: "Active, alert, and highly trainable.", image: "/images/poodle.jpg" },
+      { title: "Bulldog", content: "Calm, courageous, and dignified dog.", image: "/images/bulldog.jpg" },
+      { title: "Beagle", content: "Merry, friendly, and curious breed.", image: "/images/beagle.jpg" },
+      { title: "Doberman", content: "Loyal, fearless, and alert protector.", image: "/images/doberman.jpg" },
+      { title: "Shiba Inu", content: "Bold, good-natured, and spirited.", image: "/images/shiba.jpg" },
+      { title: "Border Collie", content: "Remarkably intelligent and energetic.", image: "/images/bordercollie.jpg" },
+      { title: "Chihuahua", content: "Alert, graceful, and charming toy breed.", image: "/images/chihuahua.jpg" },
+      { title: "Great Dane", content: "Gentle giant, dependable and friendly.", image: "/images/greatdane.jpg" }
+    ];
+
+    const container = document.getElementById('data-cards');
+    jsonData.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'col-md-4 mb-4';
+      card.innerHTML = `
+        <div class="card h-100 shadow-sm">
+          <img src="${item.image}" class="card-img-top" alt="${item.title}">
+          <div class="card-body">
+            <h5 class="card-title">${item.title}</h5>
+            <p class="card-text">${item.content}</p>
+          </div>
+        </div>`;
+      container.appendChild(card);
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

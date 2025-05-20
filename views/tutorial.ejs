@@ -1,0 +1,57 @@
+<!-- views/tutorial.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial - Feature Guide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding: 2rem;
+      background-color: #f4f6f8;
+    }
+    pre {
+      background-color: #272822;
+      color: #f8f8f2;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="mb-4">🛠 Feature Implementation Tutorial</h2>
+
+    <h4>🔐 Secure Authentication</h4>
+    <p>Passwords are hashed using <code>bcrypt</code> before being stored in the SQLite database.</p>
+    <pre><code>const hashed = await bcrypt.hash(password, 10);
+db.run('INSERT INTO users (username, password) VALUES (?, ?)', [username, hashed]);</code></pre>
+
+    <h4>🎨 User Interface Enhancements</h4>
+    <p>Bootstrap 5 is used for responsive layout and styling, including modals, cards, and parallax backgrounds via CSS.</p>
+    <pre><code>body {
+  background: url('/images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+}</code></pre>
+
+    <h4>📦 Session Management</h4>
+    <p>Sessions are stored in SQLite with <code>connect-sqlite3</code>:</p>
+    <pre><code>app.use(session({
+  store: new SQLiteStore({ db: 'sessions.sqlite' }),
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}));</code></pre>
+
+    <h4>📊 Dynamic Dashboard Content</h4>
+    <p>Dashboard cards are rendered with client-side JavaScript from a local JSON array.</p>
+    <pre><code>jsonData.forEach(item => {
+  const card = document.createElement('div');
+  card.innerHTML = `&lt;div class="card"&gt;...&lt;/div&gt;`;
+  container.appendChild(card);
+});</code></pre>
+  </div>
+</body>
+</html>
